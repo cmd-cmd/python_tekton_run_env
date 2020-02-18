@@ -15,7 +15,7 @@ chown nfsnobody:nfsnobody /var/nfs
 systemctl enable rpcbind
 systemctl start rpcbind
 ```
-`vi /etc/exports`：
+`vi /etc/exports`：  
 /var/nfs 192.168.0.39(rw,sync,no_root_squash,no_subtree_check) 192.168.0.41(rw,sync,no_root_squash,no_subtree_check)
 
 **2. 参数解释：**
@@ -40,27 +40,29 @@ systemctl start rpcbind
 
 (10) no_subtree_check 和上面相对，不检查父目录权限
 ```
-**3. 查看共享信息**
+**3. 查看共享信息**  
 
 ![查看](https://img-blog.csdnimg.cn/20200214185602230.png#pic_center)
 
 ### 1.2 NFS Client端
-**1. 准备**
+**1. 准备**  
 yum install nfs-utils
 mkdir /var/nfs
 
-**2. 检查NFS服务器上可用的NFS共享**
+**2. 检查NFS服务器上可用的NFS共享**  
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200214185956363.png#pic_center)
-**3. 挂载**
+
+**3. 挂载**  
 mount -t nfs -v 192.168.0.40:/var/nfs /var/nfs
-**4. 验证**
+
+**4. 验证**  
 - mount | grep nfs
 - df -h
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200214192449146.png#pic_center)
-**5. 设置开机自动挂载**
-`vi /etc/fstab`
+**5. 设置开机自动挂载**  
+`vi /etc/fstab`  
 192.168.0.40:/var/nfs    /var/nfs   nfs defaults 0 0
 
 ## 二、测试代码
