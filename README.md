@@ -61,6 +61,7 @@ mount -t nfs -v 192.168.0.40:/var/nfs /var/nfs
 - df -h
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200214192449146.png#pic_center)
+
 **5. 设置开机自动挂载**  
 `vi /etc/fstab`  
 192.168.0.40:/var/nfs    /var/nfs   nfs defaults 0 0
