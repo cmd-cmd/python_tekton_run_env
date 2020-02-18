@@ -6,7 +6,7 @@ spec:
   type: git
   params:
    - name: url
-     value: https://github.com/cmd-cmd/python_tekton_run_env.git
+     value: https://github.com/gujita1/python_tekton_run_env.git
    - name: revison
      value: master
 
@@ -36,6 +36,7 @@ spec:
       args:
         - -c
         - |
+          ls -R /var/nfs/
           pip install -r requirements.txt --index https://pypi.tuna.tsinghua.edu.cn/simple
           python main.py
   volumes:
